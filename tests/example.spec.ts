@@ -1,8 +1,8 @@
-import { test } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
-test.describe('toolshop', () => {
+test.describe('@apitest', () => {
 
-  const { test, expect } = require('@playwright/test');
+  // const { test, expect } = require('@playwright/test');
 
   test.describe('Reqres API Testing', () => {
     const baseURL = 'https://reqres.in/api';
