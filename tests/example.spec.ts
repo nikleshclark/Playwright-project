@@ -11,7 +11,7 @@ test.describe('toolshop', () => {
       const response = await request.get(`${baseURL}/users?page=1`);
       expect(response.ok()).toBeTruthy();
       const data = await response.json();
-      expect(data.page).toBe(2);
+      expect(data.page).toBe(1);
       expect(data.data.length).toBeGreaterThan(0);
     });
   
