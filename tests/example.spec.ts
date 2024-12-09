@@ -6,6 +6,14 @@ test.describe('toolshop', () => {
 
   test.describe('Reqres API Testing', () => {
     const baseURL = 'https://reqres.in/api';
+
+    test('GET /users?page=1', async ({ request }) => {
+      const response = await request.get(`${baseURL}/users?page=1`);
+      expect(response.ok()).toBeTruthy();
+      const data = await response.json();
+      expect(data.page).toBe(2);
+      expect(data.data.length).toBeGreaterThan(0);
+    });
   
     test('GET /users?page=2', async ({ request }) => {
       const response = await request.get(`${baseURL}/users?page=2`);
