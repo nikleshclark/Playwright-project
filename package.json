@@ -1,0 +1,64 @@
+{
+  "name": "stav-e2e",
+  "version": "1.0.0",
+  "description": "Playwright",
+  "main": "index.js",
+  "scripts": {
+    "stg": "cross-env ENV=STAGING npx playwright test --project=chromium --grep",
+    "prod": "cross-env ENV=PRODUCTION npx playwright test --project=chromium --grep",
+    "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
+    "eslint-init": "eslint --init",
+    "format": "prettier --write \"**/*.{ts,tsx,css,html}\" ",
+    "lint": "eslint ./ --ext .js,.ts,.tsx --format visualstudio --no-color --report-unused-disable-directives",
+    "backclean": "rimraf videos && rimraf screenshots && rimraf test-results && rimraf trace_*.zip  && rimraf reports/allure-results &&  rimraf trace  && rimraf reports && rimraf videos/*.webm",
+    "clean": "rimraf screenshots && rimraf test-results && rimraf trace_*.zip  && rimraf allure-results &&  rimraf trace  && rimraf reports && rimraf *.webm",
+    "allure": "allure serve allure-results",
+    "trace": "npx playwright show-trace trace.zip",
+    "record": "npx playwright codegen",
+    "bddgen": "npx bddgen --tags"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Pawan Gupta",
+  "license": "ISC",
+  "homepage": "",
+  "devDependencies": {
+    "@playwright/test": "1.43.1",
+    "@tsconfig/node18": "^18.2.2",
+    "@types/expect": "24.3.0",
+    "@types/lodash": "4.14.169",
+    "@types/node": "^20.9.2",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
+    "allure-commandline": "2.24.1",
+    "allure-js-commons": "2.15.0",
+    "allure-playwright": "2.15.0",
+    "cross-env": "^7.0.3",
+    "eslint": "8.54.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-react": "7.33.2",
+    "open": "^8.0.9",
+    "pixelmatch": "5.3.0",
+    "pngjs": "7.0.0",
+    "prettier": "3.1.0",
+    "standard-version": "9.5.0",
+    "ts-node": "10.9.1",
+    "typescript": "4.2.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.485.0",
+    "@aws-sdk/s3-request-presigner": "^3.485.0",
+    "axios": "1.6.2",
+    "dotenv": "^16.3.1",
+    "fs": "^0.0.1-security",
+    "rimraf": "5.0.5",
+    "uuid": "9.0.1"
+  }
+}
